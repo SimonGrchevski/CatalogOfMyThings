@@ -1,1 +1,8 @@
 CREATE DATABASE catalog_of_things;
+
+CREATE TABLE authors(
+  id INT UNIQUE GENERATED ALWAYS AS IDENTITY,
+  first_name VARCHAR(100),
+  last_name VARCHAR(100),
+  PRIMARY KEY(id)
+);

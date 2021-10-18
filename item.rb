@@ -1,27 +1,31 @@
 require 'date'
 
 class Item
-  attr_reader :id, :publish_date, :archieved
+  attr_reader :id, :publish_date, :archieved, :label, :genre, :author
 
-  def initialize(id, publish_date, archieved)
-    @id = id
-    @publish_date = publish_date
-    @archieved = archieved
+  def initialize(args)
+    @id = rand(1..1_000)
+    @genre = args[:genre]
+    @label = args[:label]
+    @author = args[:author]
+    @publish_date = args[:publish_date]
+    @archieved = args[:archieved]
+    @items = []
   end
 
-  def genre(genre)
+  def add_genre(genre)
     @genre = genre
-    @genre.items self
+    genre.items.push(self) unless genre.items.include?(self)
   end
 
-  def author(author)
+  def add_author(author)
     @author = author
-    @author.items self
+    author.items.push(self) unless genre.items.include?(self)
   end
 
-  def label(label)
+  def add_label(label)
     @label = label
-    @label.items self
+    label.items.push(self) unless genre.items.include?(self)
   end
 
   def move_to_archive
@@ -31,7 +35,6 @@ class Item
   private
 
   def can_be_archived?
-    years_elapsed = Time.now.year - Date.parse('2020-10-18').year
-    years_elapsed > 10
+    (Time.now.year - Date.parse(@publish_date).year) > 10
   end
 end

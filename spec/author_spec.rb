@@ -21,7 +21,7 @@ describe Author do
   end
 
   describe '#last_name' do
-    it 'should return Sun' do
+    it 'should return Tzu' do
       expect(author.last_name).to eq 'Tzu'
     end
     it 'should respond to last_name' do

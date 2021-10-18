@@ -36,3 +36,25 @@ CREATE INDEX idx_games_genre_id ON games (genre_id);
 CREATE INDEX idx_games_auhor_id ON games (author_id);
 CREATE INDEX idx_games_source_id ON games (source_id);
 CREATE INDEX idx_games_label_id ON games (label_id);
+
+
+CREATE TABLE music_albums (
+ id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    genre_id INT,
+    author_id INT,
+    source_id INT,
+    label_id INT,
+    publish_date DATE,
+    archived BOOLEAN,
+    on_spotify BOOLEAN,
+    PRIMARY KEY(id),
+    FOREIGN KEY (genre_id) REFERENCES genres (id),
+    FOREIGN KEY (author_id) REFERENCES authors (id),
+    FOREIGN KEY (label_id) REFERENCES labels (id)
+);
+
+
+CREATE TABLE genres (
+    id  PRIMARY KEY INT GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR(100),
+)

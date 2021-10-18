@@ -58,3 +58,38 @@ CREATE TABLE genres (
     id  PRIMARY KEY INT GENERATED ALWAYS AS IDENTITY,
     name VARCHAR(100),
 )
+
+CREATE TABLE label (
+  id INT UNIQUE GENERATED ALWAYS AS IDENTITY,
+  title varchar(32),
+  color varchar(32),
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE book(
+  id INT UNIQUE GENERATED ALWAYS AS IDENTITY,
+  genre_id int,
+  author_id int,
+  source_id int,
+  label_id int,
+  publish_date date,
+  archived boolean,
+  PRIMARY KEY(id),
+  CONSTRAINT fk_genres
+  FOREIGN KEY(genre_id)
+  REFERENCES genres(id),
+  CONSTRAINT fk_authors
+  FOREIGN KEY(author_id)
+  REFERENCES authors(id),
+    CONSTRAINT fk_sources
+  FOREIGN KEY(source_id)
+  REFERENCES sources(id),
+    CONSTRAINT fk_labels
+  FOREIGN KEY(label_id)
+  REFERENCES labels(id)
+);
+
+CREATE INDEX idx_book_genre_id ON book (genre_id);
+CREATE INDEX idx_book_auhor_id ON book (author_id);
+CREATE INDEX idx_book_source_id ON book (source_id);
+CREATE INDEX idx_book_label_id ON book (label_id);

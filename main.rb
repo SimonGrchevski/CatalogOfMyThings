@@ -18,4 +18,4 @@ def main
       return
     end
   end
-  
+end

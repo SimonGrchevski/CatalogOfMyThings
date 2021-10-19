@@ -4,7 +4,7 @@ class Item
   attr_reader :id, :publish_date, :archieved, :label, :genre, :author
 
   def initialize(args)
-    @id = rand(1..1_000)
+    @id = Random.rand(1..1_000)
     @genre = args[:genre]
     @label = args[:label]
     @author = args[:author]
@@ -20,12 +20,12 @@ class Item
 
   def add_author(author)
     @author = author
-    author.items.push(self) unless genre.items.include?(self)
+    author.items.push(self) unless author.items.include?(self)
   end
 
   def add_label(label)
     @label = label
-    label.items.push(self) unless genre.items.include?(self)
+    label.items.push(self) unless label.items.include?(self)
   end
 
   def move_to_archive

@@ -29,6 +29,3 @@ class Book < Item
     }.to_json(*args)
   end
 end
-
-book = Book.new('publisher', 'cover_state', { publish_date: '1999/03/01' })
-puts book.archived

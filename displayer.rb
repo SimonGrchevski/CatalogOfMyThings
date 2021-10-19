@@ -5,6 +5,7 @@ class Displayer
   def initialize(args)
     @games = args[:games]
     @authors = args[:authors]
+    @books = args[:books]
   end
 
   def list_all_games
@@ -28,4 +29,18 @@ class Displayer
       print "\n\n"
     end
   end
+
+  def list_all_books
+    puts "Books: \n\n"
+    @books.map do |book|
+      print "[#{book.class}] "
+      print "By #{book.author.first_name} "
+      print "Published on: #{book.publish_date} "
+      print "Archived: #{book.archived}, "
+      print "The publisher is: #{book.publisher} and "
+      print "The cover is in: #{book.cover_state} state"
+      print "\n\n"
+    end
+  end
+
 end

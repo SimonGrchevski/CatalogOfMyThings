@@ -7,6 +7,7 @@ class Creator
   def initialize(args)
     @association = AssociationCreator.new(args)
     @games = args[:games]
+    @books = args[:books]
   end
 
   def create_game
@@ -18,6 +19,17 @@ class Creator
     @games << game
     @association.add_author game
     puts 'Game created successfully'
+  end
+
+  def create_book
+    puts 'Insert the publisher of the book'
+    publisher = user_input
+    puts 'Whats the coverstate of the book'
+    cover_state = user_input
+    book = Book.new(publisher,cover_state, {publish_date: publish_date, archived: !archived })
+    @books << book
+    @association.add_author book
+    'Book created successfully'
   end
 
   def publish_date

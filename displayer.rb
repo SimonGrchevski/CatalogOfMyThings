@@ -34,11 +34,11 @@ class Displayer
     puts "Books: \n\n"
     @books.map do |book|
       print "[#{book.class}] "
-      print "By #{book.author.first_name} "
+      print "By #{book.author.first_name} #{book.author.last_name}. "
       print "Published on: #{book.publish_date} "
-      print "Archived: #{book.archived}, "
+      print book.archived ? "Archived." : "Not Archived."
       print "The publisher is: #{book.publisher} and "
-      print "The cover is in: #{book.cover_state} state"
+      print "The cover is in#{book.cover_state} state"
       print "\n\n"
     end
   end

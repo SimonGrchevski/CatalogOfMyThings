@@ -1,0 +1,1 @@
+[{"json_class":"Book","id":218,"label":null,"author":{"json_class":"Author","id":500,"first_name":"Leo","last_name":"Tolstoy"},"genre":null,"publish_date":"2020/01/03","archived":null,"publisher":"Pinguin","cover_state":"bad"}]

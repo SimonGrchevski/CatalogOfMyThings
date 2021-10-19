@@ -29,7 +29,7 @@ class Creator
     book = Book.new(publisher,cover_state, {publish_date: publish_date, archived: !archived })
     @books << book
     @association.add_author book
-    'Book created successfully'
+    puts 'Book created successfully'
   end
 
   def publish_date

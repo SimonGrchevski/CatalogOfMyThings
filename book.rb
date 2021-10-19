@@ -9,8 +9,6 @@ class Book < Item
     @cover_state = cover_state
   end
 
-  private
-
   def can_be_archived?
     super || (@cover_state.eql? 'bad')
   end
@@ -28,4 +26,6 @@ class Book < Item
       'cover_state' => @cover_state
     }.to_json(*args)
   end
+
+  private :can_be_archived?
 end

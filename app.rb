@@ -79,13 +79,3 @@ class App
     end
   end
 end
-
-# def main
-#   app = App.new
-#   app.execute
-# end
-
-# main
-
-app = App.new
-app.execute

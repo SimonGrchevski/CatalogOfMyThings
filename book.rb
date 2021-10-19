@@ -7,11 +7,12 @@ class Book < Item
     super(args)
     @publisher = publisher
     @cover_state = cover_state
+
   end
 
   private
   def can_be_archived?
-    return super || (@cover_state.eql? 'bad')
+    super || (@cover_state.eql? 'bad')
   end
 
   def to_json(*args)
@@ -27,5 +28,8 @@ class Book < Item
       'cover_state' => @cover_state
     }.to_json(*args)
   end
-  
+
 end
+
+book = Book.new('publisher', 'cover_state',{publish_date: '1999/03/01'})
+puts book.archived

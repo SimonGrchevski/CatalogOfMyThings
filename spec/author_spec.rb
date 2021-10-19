@@ -30,7 +30,7 @@ describe Author do
   end
 
   describe '#add_item' do
-    let(:item) { Item.new({ publish_date: '2020-01-04', archieved: true }) }
+    let(:item) { Item.new({ publish_date: '2020-01-04', archived: true }) }
     it 'should add an item' do
       author.add_item item
       expect(author.items).to include(item)

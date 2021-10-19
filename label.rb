@@ -1,14 +1,16 @@
 class Label
   attr_reader :title, :color, :items
+  attr_accessor :id
 
   def initialize(title, color)
+    @id = Random.rand(1..1000)
     @title = title
     @color = color
     @items = []
   end
 
   def add_item(item)
-    items.push item
+    @items.push item
     item.add_label self
   end
 
@@ -17,7 +19,7 @@ class Label
       JSON.create_id => self.class.name,
       'title' => @title,
       'color' => @color,
-      'items' => @items
+      'id' => @id
     }.to_json(*args)
   end
 end

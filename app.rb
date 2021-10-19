@@ -9,7 +9,9 @@ class App
     @storage = Storage.new
     @hash = {
       games: @storage.parse[:games],
-      authors: @storage.parse[:authors]
+      authors: @storage.parse[:authors],
+      books: @storage.parse[:books],
+      labels: @storage.parse[:labels]
     }
     @creator = Creator.new(@hash)
     @displayer = Displayer.new(@hash)
@@ -37,7 +39,7 @@ class App
     end
     case key
     when 1
-      puts 'Add a book'
+      puts @creator.create_book
     when 2
       puts 'Add a music album'
     when 3
@@ -55,8 +57,7 @@ class App
       key = user_input.to_i
     end
     case key
-    when 1
-      puts 'List all books'
+    when 1 then @displayer.list_all_books
     when 2
       puts 'List all albums'
     when 3 then @displayer.list_all_games
@@ -70,6 +71,7 @@ class App
       inp = gets.chomp.to_i
       case inp
       when 1 then list_options
+      when 3 then @displayer.list_all_labels
       when 4 then @displayer.list_all_authors
       when 5 then add_options
       when 6
@@ -79,10 +81,3 @@ class App
     end
   end
 end
-
-def main
-  app = App.new
-  app.execute
-end
-
-main

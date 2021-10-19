@@ -3,11 +3,10 @@ require_relative 'spec_helper'
 title = 'Black label'
 color = 'black'
 
-describe Label do 
-  before  :each do
+describe Label do
+  before :each do
     @label = Label.new(title, color)
   end
-
 
   describe '| Label instance ' do
     it '# Should return a Label instance' do
@@ -28,19 +27,18 @@ describe Label do
   end
 
   describe '| Add item' do
-    let(:new_item){Item.new({ publish_date: '1999/01/03', archieved: false }) }
-    it 'Should add the item' do 
+    let(:new_item) { Item.new({ publish_date: '1999/01/03', archieved: false }) }
+    it 'Should add the item' do
       @label.add_item(new_item)
       expect(@label.items.first).to eq(new_item)
     end
   end
 
   describe '| Add second item' do
-    let(:second_item) {Item.new({ publish_date: '2020/03/05', archieved: true })}
+    let(:second_item) { Item.new({ publish_date: '2020/03/05', archieved: true }) }
     it 'Should be last item in the items' do
       @label.add_item(second_item)
       expect(@label.items.last).to eq(second_item)
     end
   end
-
 end

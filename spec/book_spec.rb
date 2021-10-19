@@ -5,7 +5,7 @@ cover_state = 'bad'
 
 describe Book do
   before :each do
-    @book = Book.new(publisher, cover_state,{publish_date: '1999/03/01', archived: true})
+    @book = Book.new(publisher, cover_state, { publish_date: '1999/03/01', archived: true })
   end
 
   describe '| Book instance' do
@@ -31,9 +31,9 @@ describe Book do
       expect(@book.archived).to be_truthy
     end
   end
-  
+
   describe '| Can be archived' do
-    let(:unArchived) {Book.new(publisher, cover_state,{publish_date: '2020/01/01', archived: false})}
+    let(:unArchived) { Book.new(publisher, cover_state, { publish_date: '2020/01/01', archived: false }) }
     it '# The book should be archived' do
       expect(unArchived.archived).to be_falsey
     end

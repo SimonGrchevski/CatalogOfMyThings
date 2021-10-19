@@ -27,7 +27,7 @@ describe Label do
   end
 
   describe '| Add item' do
-    let(:new_item) { Item.new({ publish_date: '1999/01/03', archieved: false }) }
+    let(:new_item) { Item.new({ publish_date: '1999/01/03', archived: false }) }
     it 'Should add the item' do
       @label.add_item(new_item)
       expect(@label.items.first).to eq(new_item)
@@ -35,7 +35,7 @@ describe Label do
   end
 
   describe '| Add second item' do
-    let(:second_item) { Item.new({ publish_date: '2020/03/05', archieved: true }) }
+    let(:second_item) { Item.new({ publish_date: '2020/03/05', archived: true }) }
     it 'Should be last item in the items' do
       @label.add_item(second_item)
       expect(@label.items.last).to eq(second_item)

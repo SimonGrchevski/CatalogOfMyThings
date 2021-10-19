@@ -1,7 +1,7 @@
 require_relative 'spec_helper'
 
 describe Game do
-  let(:game) { Game.new(true, '2001-01-02', { publish_date: '1999-01-02', archieved: false }) }
+  let(:game) { Game.new(true, '2001-01-02', { publish_date: '1999-01-02', archived: false }) }
   describe '#new' do
     it 'should return an instance of Author' do
       expect(game).to be_an_instance_of Game
@@ -29,28 +29,28 @@ describe Game do
 
   describe '#can_be_archived' do
     context 'when publish_date is less than 10 years and last played more than 2 years' do
-      game1 = Game.new(true, '2018-01-02', { publish_date: '2019-01-02', archieved: false })
+      game1 = Game.new(true, '2018-01-02', { publish_date: '2019-01-02', archived: false })
       it 'should return false' do
         expect(game1.can_be_archived?).to be_falsey
       end
     end
 
     context 'when publish_date is less than 10 years and last played less than 2 years' do
-      game2 = Game.new(true, '2020-01-02', { publish_date: '2019-01-02', archieved: false })
+      game2 = Game.new(true, '2020-01-02', { publish_date: '2019-01-02', archived: false })
       it 'should return false' do
         expect(game2.can_be_archived?).to be_falsey
       end
     end
 
     context 'when publish_date is over 10 years and last played over 2 years' do
-      game3 = Game.new(true, '2001-01-02', { publish_date: '1999-01-02', archieved: false })
+      game3 = Game.new(true, '2001-01-02', { publish_date: '1999-01-02', archived: false })
       it 'should return true' do
         expect(game3.can_be_archived?).to be_truthy
       end
     end
 
     context 'when publish_date is over 10 years and last played less than 2 years' do
-      game4 = Game.new(true, '2020-01-02', { publish_date: '1999-01-02', archieved: false })
+      game4 = Game.new(true, '2020-01-02', { publish_date: '1999-01-02', archived: false })
       it 'should return false' do
         expect(game4.can_be_archived?).to be_falsey
       end

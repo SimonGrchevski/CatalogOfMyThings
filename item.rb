@@ -9,7 +9,7 @@ class Item
     @label = args[:label]
     @author = args[:author]
     @publish_date = args[:publish_date]
-    @archieved = args[:archieved]
+    @archived = args[:archived]
     @items = []
   end
 
@@ -29,7 +29,7 @@ class Item
   end
 
   def move_to_archive
-    @archieved = can_be_archived?
+    @archived = can_be_archived?
   end
 
   private

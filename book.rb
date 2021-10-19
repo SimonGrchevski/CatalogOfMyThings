@@ -1,16 +1,17 @@
 require_relative 'item'
 
-class Game < Item
-  attr_accessor :multiplayer, :last_played_at
+class Book < Item
+  attr_accessor :publisher, :cover_state
 
-  def initialize(multiplayer, last_played_at, args)
+  def initialize(publisher, cover_state,args)
     super(args)
-    @multiplayer = multiplayer
-    @last_played_at = last_played_at
+    @publisher = publisher
+    @cover_state = cover_state
   end
 
+  private
   def can_be_archived?
-    super && (Date.today.year - Date.parse(@last_played_at).year) > 2
+    return super || (@cover_state.eql? 'bad')
   end
 
   def to_json(*args)
@@ -22,8 +23,9 @@ class Game < Item
       'genre' => @genre,
       'publish_date' => @publish_date,
       'archived' => @archived,
-      'multiplayer' => @multiplayer,
-      'last_played_at' => @last_played_at
+      'publisher' => @publisher,
+      'cover_state' => @cover_state
     }.to_json(*args)
   end
+  
 end

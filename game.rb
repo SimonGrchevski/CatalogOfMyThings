@@ -20,7 +20,6 @@ class Game < Item
       'label' => @label,
       'author' => @author,
       'genre' => @genre,
-      'source' => @source,
       'publish_date' => @publish_date,
       'archived' => @archived,
       'multiplayer' => @multiplayer,

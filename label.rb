@@ -12,4 +12,13 @@ class Label
     item.add_label self
   end
 
+  def to_json(*args)
+    {
+      JSON.create_id => self.class.name,
+      'title' => @title,
+      'color' => @color,
+      'items' => @items
+    }.to_json(*args)
+  end
+
 end

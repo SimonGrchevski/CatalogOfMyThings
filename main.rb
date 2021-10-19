@@ -5,7 +5,6 @@ def print_options
   end
 end
 
-
 def main
   loop do
     print_options
@@ -18,4 +17,4 @@ def main
       return
     end
   end
-  
+end

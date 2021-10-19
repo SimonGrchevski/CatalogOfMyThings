@@ -10,7 +10,8 @@ class App
     @hash = {
       games: @storage.parse[:games],
       authors: @storage.parse[:authors],
-      books: @storage.parse[:books]
+      books: @storage.parse[:books],
+      labels: @storage.parse[:labels]
     }
     @creator = Creator.new(@hash)
     @displayer = Displayer.new(@hash)
@@ -70,6 +71,7 @@ class App
       inp = gets.chomp.to_i
       case inp
       when 1 then list_options
+      when 3 then @displayer.list_all_labels
       when 4 then @displayer.list_all_authors
       when 5 then add_options
       when 6

@@ -18,17 +18,19 @@ class Creator
     game = Game.new(!multi_player, last_played_at, { publish_date: publish_date, archived: !archived })
     @games << game
     @association.add_author game
+    @association.add_label game
     puts 'Game created successfully'
   end
 
   def create_book
     puts 'Insert the publisher of the book'
     publisher = user_input
-    puts 'Whats the coverstate of the book'
+    puts 'Whats the cover state of the book'
     cover_state = user_input
     book = Book.new(publisher,cover_state, {publish_date: publish_date, archived: !archived })
     @books << book
     @association.add_author book
+    @association.add_label book
     puts 'Book created successfully'
   end
 

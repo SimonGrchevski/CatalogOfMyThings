@@ -6,6 +6,7 @@ class Displayer
     @games = args[:games]
     @authors = args[:authors]
     @books = args[:books]
+    @labels = args[:labels]
   end
 
   def list_all_games
@@ -38,9 +39,17 @@ class Displayer
       print "Published on: #{book.publish_date} "
       print book.archived ? "Archived." : "Not Archived."
       print "The publisher is: #{book.publisher} and "
-      print "The cover is in#{book.cover_state} state"
+      print "The cover is in #{book.cover_state} state"
       print "\n\n"
     end
+  end
+
+  def list_all_labels
+    puts "Labels: \n\n"
+    @labels.each_with_index do |l,i|
+      print "#{i}) Title: #{l.title} Color: #{l.color}\n"
+    end
+    print "\n\n"
   end
 
 end

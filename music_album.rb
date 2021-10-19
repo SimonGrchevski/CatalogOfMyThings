@@ -21,7 +21,7 @@ class MusicAlbum < Item
       'author' => @author,
       'publish_date' => @publish_date,
       'archived' => @archived,
-      'on_spotify' => @on_spotify,
+      'on_spotify' => @on_spotify
     }.to_json(*args)
   end
 end

@@ -3,7 +3,7 @@ class Genre
   attr_reader :items
 
   def initialize(name:)
-    id = rand(1..100)
+    @id = rand(1..100)
     @name = name
     @items = []
   end
@@ -17,7 +17,7 @@ class Genre
     {
       JSON.create_id => self.class.name,
       'id' => @id,
-      'name' => @name,
+      'name' => @name
     }.to_json(*args)
   end
 end

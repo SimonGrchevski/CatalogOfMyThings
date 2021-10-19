@@ -1,14 +1,14 @@
 class Label
-  attr_reader :title, :color
+  attr_reader :title, :color, :items
 
-  def initialize(title,color)
+  def initialize(title, color)
     @title = title
     @color = color
     @items = []
   end
 
   def add_item(item)
-    items.push item 
+    items.push item
     item.add_label self
   end
 
@@ -20,5 +20,4 @@ class Label
       'items' => @items
     }.to_json(*args)
   end
-
 end

@@ -16,9 +16,9 @@ class MusicAlbum < Item
     {
       JSON.create_id => self.class.name,
       'id' => @id,
-      'genre' => @genre,
       'label' => @label,
       'author' => @author,
+      'genre' => @genre,
       'publish_date' => @publish_date,
       'archived' => @archived,
       'on_spotify' => @on_spotify

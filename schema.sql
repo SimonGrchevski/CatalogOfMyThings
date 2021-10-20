@@ -11,7 +11,6 @@ CREATE TABLE games(
   id INT UNIQUE GENERATED ALWAYS AS IDENTITY,
   genre_id INT,
   author_id INT,
-  source_id INT,
   label_id INT,
   publish_date DATE,
   archived BOOLEAN DEFAULT false,
@@ -24,9 +23,6 @@ CREATE TABLE games(
   CONSTRAINT fk_authors
   FOREIGN KEY(author_id)
   REFERENCES authors(id)
-  CONSTRAINT fk_sources
-  FOREIGN KEY(source_id)
-  REFERENCES sources(id)
   CONSTRAINT fk_labels
   FOREIGN KEY(label_id)
   REFERENCES labels(id)
@@ -34,7 +30,6 @@ CREATE TABLE games(
 
 CREATE INDEX idx_games_genre_id ON games (genre_id);
 CREATE INDEX idx_games_auhor_id ON games (author_id);
-CREATE INDEX idx_games_source_id ON games (source_id);
 CREATE INDEX idx_games_label_id ON games (label_id);
 
 
@@ -42,7 +37,6 @@ CREATE TABLE music_albums (
  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     genre_id INT,
     author_id INT,
-    source_id INT,
     label_id INT,
     publish_date DATE,
     archived BOOLEAN,
@@ -70,7 +64,6 @@ CREATE TABLE book(
   id INT UNIQUE GENERATED ALWAYS AS IDENTITY,
   genre_id int,
   author_id int,
-  source_id int,
   label_id int,
   publish_date date,
   archived boolean,
@@ -81,9 +74,6 @@ CREATE TABLE book(
   CONSTRAINT fk_authors
   FOREIGN KEY(author_id)
   REFERENCES authors(id),
-    CONSTRAINT fk_sources
-  FOREIGN KEY(source_id)
-  REFERENCES sources(id),
     CONSTRAINT fk_labels
   FOREIGN KEY(label_id)
   REFERENCES labels(id)
@@ -91,5 +81,4 @@ CREATE TABLE book(
 
 CREATE INDEX idx_book_genre_id ON book (genre_id);
 CREATE INDEX idx_book_auhor_id ON book (author_id);
-CREATE INDEX idx_book_source_id ON book (source_id);
 CREATE INDEX idx_book_label_id ON book (label_id);

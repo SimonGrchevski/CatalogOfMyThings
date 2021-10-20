@@ -60,7 +60,7 @@ class Displayer
       puts "[#{album.class}] "
       puts "By #{album.author.first_name} #{album.author.last_name}. "
       puts "Published on: #{album.publish_date} "
-      puts album.archieved ? 'Archived.' : 'Not Archived.'
+      puts album.archived ? 'Archived.' : 'Not Archived.'
       puts album.on_spotify ? 'Album is on Spotify.' : 'Album is NOT on Spotify.'
       print "\n\n"
     end

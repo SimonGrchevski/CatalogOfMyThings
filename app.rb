@@ -22,8 +22,8 @@ class App
   def print_options
     op = [
       'List all items',
-      'List all genres',
-      'List all labels',
+      'List all genres (e.g "Comedy", "Thriller")',
+      'List all labels (e.g. "Gift", "New")',
       'List all authors (e.g. "Stephen King")',
       'Add items',
       'Exit'

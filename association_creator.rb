@@ -34,14 +34,14 @@ class AssociationCreator
   def add_label(item)
     puts 'Choose an label from the list below or "n" to create one: '
     @labels.each_index do |i|
-      puts "(#{i}) First name: #{@labels[i].title}. Last name: #{@labels[i].color}"
+      puts "(#{i}) Title: #{@labels[i].title}. Color: #{@labels[i].color}"
     end
     label = nil
     key = user_input
     if key.eql?('n')
-      print 'Title: '
+      print 'Title: (Gift): '
       title = user_input
-      print 'Color: '
+      print 'Color: (Black): '
       color = user_input
       label = Label.new(title, color)
       @labels << label
@@ -54,12 +54,12 @@ class AssociationCreator
   def add_genre(item)
     puts 'Choose a genre from the list below or "n" to create one: '
     @genres.each_index do |i|
-      puts "(#{i}) genre name: #{@genres[i].name}. "
+      puts "(#{i}) genre name: #{@genres[i].name} "
     end
     genre = nil
     key = user_input
     if key.eql?('n')
-      print 'genre name? '
+      print 'genre name? (e.g Thriller): '
       g_name = user_input
       genre = Genre.new(name: g_name)
       @genres.push(genre)

@@ -60,8 +60,7 @@ class App
     end
     case key
     when 1 then @displayer.list_all_books
-    when 2
-      puts 'List all albums'
+    when 2 then @displayer.list_all_music_albums
     when 3 then @displayer.list_all_games
     end
   end
@@ -73,6 +72,7 @@ class App
       inp = gets.chomp.to_i
       case inp
       when 1 then list_options
+      when 2 then @displayer.list_all_genres
       when 3 then @displayer.list_all_labels
       when 4 then @displayer.list_all_authors
       when 5 then add_options

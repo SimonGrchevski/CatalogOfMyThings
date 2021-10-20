@@ -120,7 +120,7 @@ class Storage
     return [] unless File.exist? file_name
 
     JSON.parse(File.read(file_name)).map do |g|
-      genre = Genre.new(g['name'])
+      genre = Genre.new(name: g['name'])
       genre.id = g['id']
       genre
     end

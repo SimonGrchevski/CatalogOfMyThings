@@ -1,9 +1,11 @@
 require_relative 'association_creator'
 require_relative 'game'
 require_relative 'module/screen'
+require_relative 'module/helper'
 
 class Creator
   include Screen
+  include Helper
   def initialize(args)
     @association = AssociationCreator.new(args)
     @games = args[:games]
@@ -16,7 +18,7 @@ class Creator
     multi_player = user_input == 'n'
     print 'Last Played At (yyyy/mm/dd): '
     last_played_at = user_input
-    game = Game.new(!multi_player, last_played_at, { publish_date: publish_date, archived: !archived })
+    game = Game.new(!multi_player, format_date(last_played_at), { publish_date: publish_date, archived: !archived })
     @games << game
     create_associations(game)
     puts 'Game created successfully'
@@ -49,7 +51,7 @@ class Creator
 
   def publish_date
     print 'Publish date (yyyy/mm/dd): '
-    user_input
+    format_date(user_input)
   end
 
   def archived

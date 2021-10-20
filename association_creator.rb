@@ -32,7 +32,7 @@ class AssociationCreator
   def add_label(item)
     puts 'Choose an label from the list below or "n" to create one: '
     @labels.each_index do |i|
-      puts "(#{i}) First name: #{@labels[i].title}. Last name: #{@labels[i].color}"
+      puts "(#{i}) Title: #{@labels[i].title}. Color: #{@labels[i].color}"
     end
     label = nil
     key = user_input

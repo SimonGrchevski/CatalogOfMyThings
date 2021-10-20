@@ -11,8 +11,8 @@ describe 'Genre' do
       expect(@genre).to be_an_instance_of Genre
     end
 
-    it 'rais an error if  genre\'s name is not provided' do
-      expect { Genre.new }.to(raise_error)
+    it 'raise an error if  genre\'s name is not provided' do
+      expect { Genre.new }.to raise_error ArgumentError
     end
   end
 

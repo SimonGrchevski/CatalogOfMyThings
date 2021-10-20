@@ -11,7 +11,9 @@ class App
       games: @storage.parse[:games],
       authors: @storage.parse[:authors],
       books: @storage.parse[:books],
-      labels: @storage.parse[:labels]
+      labels: @storage.parse[:labels],
+      music_albums: @storage.parse[:music_albums],
+      genres: @storage.parse[:genres]
     }
     @creator = Creator.new(@hash)
     @displayer = Displayer.new(@hash)
@@ -41,7 +43,7 @@ class App
     when 1
       puts @creator.create_book
     when 2
-      puts 'Add a music album'
+      puts @creator.create_music_album
     when 3
       puts @creator.create_game
     end
@@ -58,8 +60,7 @@ class App
     end
     case key
     when 1 then @displayer.list_all_books
-    when 2
-      puts 'List all albums'
+    when 2 then @displayer.list_all_music_albums
     when 3 then @displayer.list_all_games
     end
   end
@@ -71,6 +72,7 @@ class App
       inp = gets.chomp.to_i
       case inp
       when 1 then list_options
+      when 2 then @displayer.list_all_genres
       when 3 then @displayer.list_all_labels
       when 4 then @displayer.list_all_authors
       when 5 then add_options

@@ -14,7 +14,7 @@ class Creator
   def create_game
     print 'Is it Multiplayer? [Y/N]: '
     multi_player = user_input == 'n'
-    print 'Last Played At (yyyy-mm-dd): '
+    print 'Last Played At (yyyy/mm/dd): '
     last_played_at = user_input
     game = Game.new(!multi_player, last_played_at, { publish_date: publish_date, archived: !archived })
     @games << game
@@ -48,7 +48,7 @@ class Creator
   end
 
   def publish_date
-    print 'Publish date: '
+    print 'Publish date (yyyy/mm/dd): '
     user_input
   end
 

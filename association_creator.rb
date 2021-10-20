@@ -1,12 +1,14 @@
 require_relative 'module/screen'
 require_relative 'author'
 require_relative 'label'
+require_relative 'genre'
 
 class AssociationCreator
   include Screen
   def initialize(args)
     @authors = args[:authors]
     @labels = args[:labels]
+    @genres = args[:genres]
   end
 
   def add_author(item)
@@ -47,5 +49,23 @@ class AssociationCreator
       label = @labels[key.to_i]
     end
     item.add_label label
+  end
+
+  def add_genre(item)
+    puts 'Choose a genre from the list below or "n" to create one: '
+    @genres.each_index do |i|
+      puts "(#{i}) genre name: #{@genres[i].name}. "
+    end
+    genre = nil
+    key = user_input
+    if key.eql?('n')
+      print 'genre name? '
+      g_name = user_input
+      genre = Genre.new(name: g_name)
+      @genres.push(genre)
+    else
+      genre = @genres[key.to_i]
+    end
+    item.add_genre genre
   end
 end

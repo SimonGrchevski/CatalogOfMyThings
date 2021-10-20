@@ -37,7 +37,7 @@ class Displayer
       print "[#{book.class}] "
       print "By #{book.author.first_name} #{book.author.last_name}. "
       print "Published on: #{book.publish_date} "
-      print book.archived ? "Archived." : "Not Archived."
+      print book.archived ? 'Archived.' : 'Not Archived.'
       print "The publisher is: #{book.publisher} and "
       print "The cover is in #{book.cover_state} state"
       print "\n\n"
@@ -46,10 +46,9 @@ class Displayer
 
   def list_all_labels
     puts "Labels: \n\n"
-    @labels.each_with_index do |l,i|
+    @labels.each_with_index do |l, i|
       print "#{i}) Title: #{l.title} Color: #{l.color}\n"
     end
     print "\n\n"
   end
-
 end
